@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kilordle/static/css/main.eba143d2.css",
-    "main.js": "/kilordle/static/js/main.f1a37fc7.js",
-    "index.html": "/kilordle/index.html",
-    "main.eba143d2.css.map": "/kilordle/static/css/main.eba143d2.css.map",
-    "main.f1a37fc7.js.map": "/kilordle/static/js/main.f1a37fc7.js.map"
+    "main.css": "/n-wordle/static/css/main.eba143d2.css",
+    "main.js": "/n-wordle/static/js/main.b16a1649.js",
+    "index.html": "/n-wordle/index.html",
+    "main.eba143d2.css.map": "/n-wordle/static/css/main.eba143d2.css.map",
+    "main.b16a1649.js.map": "/n-wordle/static/js/main.b16a1649.js.map"
   },
   "entrypoints": [
     "static/css/main.eba143d2.css",
-    "static/js/main.f1a37fc7.js"
+    "static/js/main.b16a1649.js"
   ]
 }
