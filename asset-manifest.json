@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kilordle/static/css/main.eba143d2.css",
+    "main.js": "/kilordle/static/js/main.f1a37fc7.js",
+    "index.html": "/kilordle/index.html",
+    "main.eba143d2.css.map": "/kilordle/static/css/main.eba143d2.css.map",
+    "main.f1a37fc7.js.map": "/kilordle/static/js/main.f1a37fc7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eba143d2.css",
+    "static/js/main.f1a37fc7.js"
+  ]
+}
