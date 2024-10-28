@@ -22,13 +22,13 @@ const Content = styled.div`
 `;
 
 function App() {
-  const totalWords = 10;
+  const totalWords = 100;
   const [wordlist, setWordlist] = useState(generateWordlist(totalWords));
   const [guesslist, setGuesslist] = useState<string[]>([]);
   const [progressHistory, setProgressHistory] = useState<number[]>([]);
   const [working, setWorking] = useState('');
 
-  const maxGuesses = 15;
+  const maxGuesses = totalWords + 5;
   const expired = guesslist.length >= maxGuesses;
 
   function addKey(key: string) {
@@ -83,7 +83,7 @@ function App() {
   //   if (endScreenDemo) {
   //     let fakeProgressHistory = [];
   //     let progress = 0;
-  //     while (progress < 10) {
+  //     while (progress < 100) {
   //       progress += Math.floor(Math.random() * 10);
   //       fakeProgressHistory.push(progress);
   //     }
@@ -101,6 +101,7 @@ function App() {
             guesses={guesslist.length}
             limit={maxGuesses}
             remaining={wordlist.length}
+            totalWords={totalWords}
           />
           <Puzzles
             expired={expired}

@@ -36,7 +36,7 @@ function Puzzles({
           working={working}
         />
       ))}
-      {wordlist.length > 0 ? <More>+ {notShown} more</More> : null}
+      {wordlist.length > 0 ? <More>+ {notShown} más</More> : null}
     </Container>
   );
 }

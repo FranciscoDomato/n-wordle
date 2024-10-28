@@ -1,7 +1,7 @@
 /*import { seedRandom } from './seedRandom';
 import { WORDLES, NUM_WORDLES } from './words';
 
-export function generateWordlist(length: number = 10) {
+export function generateWordlist(length: number = 100) {
   const seed = seedRandom();
   const generator = 163; // n is a cyclic group so I can put any prime as a generator (maybe?)
 
@@ -16,7 +16,7 @@ export function generateWordlist(length: number = 10) {
 
 import { WORDLES, NUM_WORDLES } from './words';
 
-export function generateWordlist(length: number = 10) {
+export function generateWordlist(length: number = 100) {
   const shuffled = [...WORDLES]; // Copiamos el array original
 
   for (let i = NUM_WORDLES - 1; i > 0; i--) {

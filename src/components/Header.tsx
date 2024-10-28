@@ -21,21 +21,27 @@ function Header({
   remaining,
   guesses,
   limit,
+  totalWords,
 }: {
   remaining: number;
   guesses: number;
   limit: number;
+  totalWords: number;
 }) {
   return (
     <Container>
       <Title>
-        Kilordle by{' '}
+        N-wordle por{' '}
+        <a href="https://github.com/FranciscoDomato/n-wordle.git" target="_blank">
+          Fuego.
+        </a>
+        {' '}Pero el 99% del trabajo fue hecho por{' '} 
         <a href="https://github.com/jonesnxt/kilordle" target="_blank">
-          jones
+          jones.
         </a>
       </Title>
       <Stats>
-        Guesses: {guesses}/{limit} | Remaining: {remaining}/10
+      Intentos: {guesses}/{limit} | Adivinadas: {remaining}/{totalWords}
       </Stats>
     </Container>
   );

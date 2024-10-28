@@ -42,7 +42,7 @@ const Key = styled.div<{ letter: string; used: boolean }>`
   ${({ used }) => used && 'background-color: #CCC;'}
 `;
 
-const rows = ['qwertyuiop', 'asdfghjkl', '+zxcvbnm-'];
+const rows = ['qwertyuiop', 'asdfghjklñ', '+zxcvbnm-'];
 
 function Keyboard({
   expired,
@@ -56,7 +56,7 @@ function Keyboard({
   if (expired) {
     return (
       <Container>
-        <Content>No more guesses. Why have you done this to yourself?</Content>
+        <Content>Más suerte la próxima 😬​</Content>
       </Container>
     );
   } else {
