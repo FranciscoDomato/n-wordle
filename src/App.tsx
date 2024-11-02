@@ -22,7 +22,7 @@ const Content = styled.div`
 `;
 
 function App() {
-  const totalWords = 2;
+  const totalWords = 50;
   const [wordlist, setWordlist] = useState(generateWordlist(totalWords));
   const [guesslist, setGuesslist] = useState<string[]>([]);
   const [progressHistory, setProgressHistory] = useState<number[]>([]);
