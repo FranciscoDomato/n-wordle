@@ -1,25 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-
-const ShareButton = styled.button`
-  margin: 10px 0;
-  background-color: #0fb30f;
-  color: white;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  outline: none;
-  font-size: 1.5em;
-  cursor: pointer;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.1);
-
-  :hover {
-    opacity: 0.6;
-  }
-
-  &:active {
-    color: lightgray;
-  }
-`;
 
 function EndScreen({ progressHistory }: { progressHistory: number[] }) {
   const guesses = progressHistory.length;
@@ -168,64 +147,6 @@ function EndScreen({ progressHistory }: { progressHistory: number[] }) {
     });
   }, [progressHistory]);
 
-  const [buttonText, setButtonText] = useState('Share Results');
-
-  const getFileName = () => {
-    const now = new Date();
-    return `kilordle-${now.getFullYear()}-${
-      now.getMonth() + 1
-    }-${now.getDate()}.png`;
-  };
-
-  /** download results to share them the old-fashioned way */
-  const downloadResults = () => {
-    const dl = document.createElement('a');
-    dl.download = getFileName();
-    dl.href = canvasURL;
-    dl.click();
-  };
-
-  /** try to copy results to clipboard; returns true on success */
-  const copyResults = async (png: Blob): Promise<boolean> => {
-    try {
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          [png.type]: png,
-        }),
-      ]);
-    } catch {
-      return false;
-    }
-    setButtonText('Copied to clipboard');
-    return true;
-  };
-
-  /** try to activate the system's built-in share menu; returns true on success */
-  const mobileShareResults = async (png: Blob): Promise<boolean> => {
-    if (!('share' in navigator)) return false;
-    // Chrome and Edge on Windows 10 support the navigator.share API but
-    // tragically, the resulting pop-up is very bad, unless you really want your
-    // results emailed. So we will keep this method mobile-focused
-    if (navigator.userAgent.includes('Windows')) return false;
-    const shareable: ShareData = {
-      files: [new File([png], getFileName(), { type: 'image/png' })],
-    };
-    if (!navigator.canShare(shareable)) return false;
-    try {
-      await navigator.share(shareable);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  const shareResults = async () => {
-    if (!canvasResult.current) return;
-    if (await mobileShareResults(canvasResult.current)) return;
-    if (await copyResults(canvasResult.current)) return;
-    downloadResults();
-  };
-
   return (
     <>
       <img
@@ -233,7 +154,6 @@ function EndScreen({ progressHistory }: { progressHistory: number[] }) {
         src={canvasURL}
         style={{ width: displayWidth, maxWidth: '95%', height: 'auto' }}
       />
-      <ShareButton onClick={shareResults}>{buttonText}</ShareButton>
     </>
   );
 }

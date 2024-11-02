@@ -48,15 +48,17 @@ function Keyboard({
   expired,
   usedLetters,
   onKeyPress,
+  wordlist,
 }: {
   expired: boolean;
   usedLetters: string[];
   onKeyPress: (key: string) => void;
+  wordlist: string[];
 }) {
   if (expired) {
     return (
       <Container>
-        <Content>Más suerte la próxima 😬​</Content>
+        <Content>Las palabras que te faltaron eran: {'"' + wordlist.join('", "') + '"'}. Más suerte la próxima 😬​</Content>
       </Container>
     );
   } else {

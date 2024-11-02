@@ -22,7 +22,7 @@ const Content = styled.div`
 `;
 
 function App() {
-  const totalWords = 100;
+  const totalWords = 2;
   const [wordlist, setWordlist] = useState(generateWordlist(totalWords));
   const [guesslist, setGuesslist] = useState<string[]>([]);
   const [progressHistory, setProgressHistory] = useState<number[]>([]);
@@ -116,6 +116,7 @@ function App() {
             expired={expired}
             onKeyPress={(key) => addKey(key)}
             usedLetters={getUsedLetters()}
+            wordlist={wordlist}
           />
         </Content>
       </Container>
